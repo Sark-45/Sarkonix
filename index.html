@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarkonix — We Build Websites That Help Grow Your Business</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon"
+    href="https://lens.usercontent.google.com/banana?agsi=CmdnbG9iYWw6OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAwZWI6MTpmZjQ5N2MyMTg1ZmVkZWFjOjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAxODBmMGEwMzM2ODowMDA2NGNmNWY5MzY4YzlmEAI=">
+  <style>
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #112240;
+      --navy-light: #1a3560;
+      --gold: #C8A96E;
+      --gold-light: #e0c48a;
+      --white: #F8F9FC;
+      --muted: #8899aa;
+      --text: #cdd6f4;
+
+      /* Responsive Spacing */
+      --section-padding: clamp(4rem, 8vw, 8rem);
+      --container-padding: clamp(1rem, 5vw, 6vw);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem var(--container-padding);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--navy);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      transition: all 0.4s ease;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.6rem 1.6rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 6vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 50%, rgba(200, 169, 110, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(17, 34, 64, 0.9) 0%, transparent 70%),
+        linear-gradient(135deg, #0A1628 0%, #112240 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(200, 169, 110, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 169, 110, 0.5) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 750px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.6s forwards;
+    }
+
+    .hero-actions {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.8s forwards;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2.2rem;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+
+
+    /* ── STATS ── */
+    .stats-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(200, 169, 110, 0.15);
+      border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+      padding: 2rem 6vw;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: var(--section-padding) var(--container-padding);
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 700px;
+    }
+
+    h2 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--navy-mid);
+    }
+
+    .services-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .services-intro {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .services-intro p {
+      color: var(--muted);
+      max-width: 380px;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: rgba(200, 169, 110, 0.1);
+    }
+
+    .service-card {
+      background: var(--navy);
+      padding: 2.5rem;
+      transition: all 0.4s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s;
+    }
+
+    .service-card:hover {
+      background: #0f2043;
+    }
+
+    .service-card:hover::before {
+      height: 100%;
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      padding: 0.25rem 0.7rem;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {
+      background: var(--navy);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy-mid);
+      border: 1px solid rgba(200, 169, 110, 0.1);
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-thumb {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-thumb-1 {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+
+    .portfolio-thumb-2 {
+      background: linear-gradient(135deg, #0f3460, #533483);
+    }
+
+    .portfolio-thumb-3 {
+      background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    }
+
+    .portfolio-thumb-4 {
+      background: linear-gradient(135deg, #3d0b00, #6b1e00);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-info {
+      padding: 1.5rem;
+    }
+
+    .portfolio-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .portfolio-info p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .portfolio-type {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── WHY US ── */
+    #why {
+      background: var(--navy-mid);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 992px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .why-text p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .why-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .why-list li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.6rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .why-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .why-card {
+      border: 1px solid rgba(200, 169, 110, 0.15);
+      padding: 1.5rem 2rem;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: border-color 0.3s;
+    }
+
+    .why-card:hover {
+      border-color: var(--gold);
+    }
+
+    .why-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.4;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .why-card-text h4 {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .why-card-text p {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--navy);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(200, 169, 110, 0.1);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .testi-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .testi-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testi-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--navy-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+
+    .testi-name {
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .testi-role {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy-mid);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 992px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-item-text span {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item-text a,
+    .contact-item-text p {
+      color: var(--white);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-item-text a:hover {
+      color: var(--gold);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(200, 169, 110, 0.15);
+      color: var(--white);
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(136, 153, 170, 0.5);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--navy-mid);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* ── Validation Tooltips ── */
+    .tip {
+      display: none;
+      position: absolute;
+      bottom: -28px;
+      left: 0;
+      background: #2a0a0a;
+      color: #ff9090;
+      border: 1px solid rgba(255, 100, 100, 0.4);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .tip.show {
+      display: block;
+    }
+
+    .input-error {
+      border-color: #ff6b6b !important;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 3rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-logo p {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 0.3rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--navy);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes waPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1);
+      }
+    }
+
+    /* ── DECORATIVE LINE ── */
+    .deco-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 1.5rem 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem var(--container-padding);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        text-align: center;
+      }
+
+      .stats-bar {
+        padding: 3rem var(--container-padding);
+        gap: 3rem;
+      }
+
+      .stat {
+        width: 40%;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      /* Mobile Nav Logic */
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .nav-links.active {
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+    }
+
+    /* Logo Image Styles */
+    .logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="Sarkonix-Logo1.jpeg" alt="SARKONIX">
+    </div>
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#why">About</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a
+      Quote</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">IT Services &amp; Digital Solutions — Bengaluru</div>
+      <h1>We Build Websites<br>That <em>Help Grow</em><br>Your Business</h1>
+      <p class="hero-sub">Sarkonix crafts high-performance digital experiences — from elegant websites to full-scale IT
+        solutions — engineered to convert visitors into loyal customers.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start Your Project</a>
+        <a href="#portfolio" class="btn-outline">View Our Work</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-intro">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2>Comprehensive <em>IT Services</em><br>for Modern Businesses</h2>
+      </div>
+      <p>From concept to deployment, we deliver end-to-end digital solutions that are built to scale, perform, and
+        impress.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>Web Development</h3>
+        <p>Custom websites and web applications built with cutting-edge technologies. Responsive, fast, and optimized
+          for conversion.</p>
+        <div class="service-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Full Stack</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3>UI/UX Design</h3>
+        <p>Intuitive interfaces crafted around user behavior. We design experiences that are beautiful, accessible, and
+          conversion-focused.</p>
+        <div class="service-tags">
+          <span class="tag">Figma</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Research</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📱</span>
+        <h3>Mobile Applications</h3>
+        <p>Native and cross-platform mobile apps that deliver seamless experiences on iOS and Android devices.</p>
+        <div class="service-tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">iOS/Android</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔍</span>
+        <h3>SEO &amp; Digital Marketing</h3>
+        <p>Data-driven strategies to increase your visibility, drive organic traffic, and grow your online presence.</p>
+        <div class="service-tags">
+          <span class="tag">SEO</span>
+          <span class="tag">Analytics</span>
+          <span class="tag">Content</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛒</span>
+        <h3>E-Commerce Solutions</h3>
+        <p>High-converting online stores with seamless checkout experiences, inventory management, and payment
+          integration.</p>
+        <div class="service-tags">
+          <span class="tag">Shopify</span>
+          <span class="tag">WooCommerce</span>
+          <span class="tag">Custom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-tag">Our Work</div>
+    <h2>Projects We're <em>Proud</em> Of</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb portfolio-thumb-1">
+          <span>🏪</span>
+          <div class="portfolio-overlay">View Project →</div>
+        </div>
+        <div class="portfolio-info">
+          <h4>RetailEdge Platform</h4>
+          <p>Full-stack e-commerce platform with real-time inventory and analytics dashboard</p>
+          <span class="portfolio-type">Web Development · E-Commerce</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb portfolio-thumb-2">
+          <span>🏥</span>
+          <div class="portfolio-overlay">View Project →</div>
+        </div>
+        <div class="portfolio-info">
+          <h4>MedConnect Portal</h4>
+          <p>Healthcare appointment management system with patient dashboard and EHR integration</p>
+          <span class="portfolio-type">Web App · Healthcare</span>
+        </div>
+      </div>
+      <div class="portfolio-card" onclick="window.open('https://wodeyars.vercel.app/','_blank')"
+        style="cursor:pointer;">
+        <div class="portfolio-thumb portfolio-thumb-3"
+          style="background: linear-gradient(135deg, #1a0a00, #3d2000); position:relative; overflow:hidden;">
+          <span style="font-size:3rem;">🍛</span>
+          <div style="position:absolute;bottom:0.8rem;left:1rem;right:1rem;text-align:left;">
+            <div
+              style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#C8A96E;letter-spacing:0.05em;">
+              WODEYARS BIRIYANI</div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);margin-top:0.2rem;">Authentic Donne Biryani ·
+              Bengaluru</div>
+          </div>
+          <div class="portfolio-overlay">Visit Live Site →</div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Wodeyars Biriyani</h4>
+          <p>Full restaurant website with Swiggy & Zomato ordering, menu showcase, gallery, franchise and contact
+            sections</p>
+          <span class="portfolio-type">Web Design · Restaurant · Live ↗</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb portfolio-thumb-4">
+          <span>🚀</span>
+          <div class="portfolio-overlay">View Project →</div>
+        </div>
+        <div class="portfolio-info">
+          <h4>StartupHub Landing</h4>
+          <p>High-converting landing page and investor pitch portal for a Series A startup</p>
+          <span class="portfolio-type">Web Design · Branding</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="section-tag">Why Sarkonix</div>
+    <div class="why-grid">
+      <div class="why-text">
+        <h2>Built on <em>Expertise,</em><br>Delivered with Precision</h2>
+        <div class="deco-line"></div>
+        <p>We don't just build websites — we engineer digital growth engines. Every project at Sarkonix is approached
+          with strategic thinking, technical excellence, and a relentless focus on results.</p>
+        <p>Based in Bengaluru, the Silicon Valley of India, we bring world-class IT capabilities to businesses of all
+          sizes — from local startups to growing enterprises.</p>
+        <ul class="why-list">
+          <li>Dedicated project manager for every client engagement</li>
+          <li>Transparent timelines with milestone-based delivery</li>
+          <li>Post-launch support and maintenance included</li>
+          <li>Clean, documented code with full client ownership</li>
+        </ul>
+      </div>
+      <div class="why-cards">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <div class="why-card-text">
+            <h4>Strategy-First Approach</h4>
+            <p>We understand your business goals before writing a single line of code.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <div class="why-card-text">
+            <h4>Agile Development</h4>
+            <p>Iterative sprints, regular demos, and full client involvement at every stage.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <div class="why-card-text">
+            <h4>Performance Obsessed</h4>
+            <p>Every site we ship scores 90+ on Google PageSpeed by design, not by luck.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">04</div>
+          <div class="why-card-text">
+            <h4>Long-Term Partnership</h4>
+            <p>We grow with our clients — 80% of our business comes from repeat customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-tag">Client Voices</div>
+    <h2>What Our <em>Clients</em> Say</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Sarkonix built us a stunning restaurant website with online reservations and a beautiful
+          menu showcase. Our table bookings increased by 60% within the first month. Absolutely worth every rupee!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div>
+            <div class="testi-name">Rajesh Kumar</div>
+            <div class="testi-role">Owner, Spice Garden Restaurant · Bengaluru</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Professional, responsive, and deeply skilled. The team at Sarkonix delivered our
+          e-commerce platform ahead of schedule with zero compromises on quality.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PA</div>
+          <div>
+            <div class="testi-name">Priya Anand</div>
+            <div class="testi-role">Founder, StyleNest India</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Best IT partner we've worked with. They understood our vision immediately and delivered a
+          product that exceeded every expectation. Highly recommended!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MS</div>
+          <div>
+            <div class="testi-name">Mohammed Saleem</div>
+            <div class="testi-role">Director, BuildRight Construction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-tag">Let's Talk</div>
+    <h2>Ready to <em>Grow</em><br>Your Business?</h2>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>Tell us about your project and we'll get back to you within 24 hours with a tailored proposal. No obligation,
+          no fluff.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-item-text">
+              <span>Email Us</span>
+              <a href="https://mail.google.com/mail/u/2/?pli=1#inbox">contact.sarkonix@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-item-text">
+              <span>Call Us</span>
+              <a href="tel:+917411535145">+91 74115 35145</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-item-text">
+              <span>Location</span>
+              <p>Bengaluru, Karnataka, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⏱️</div>
+            <div class="contact-item-text">
+              <span>Response Time</span>
+              <p>Within 24 business hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <!-- FormSubmit hidden fields -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Project Enquiry — Sarkonix Website">
+        <input type="hidden" name="_next" value="">
+
+        <div class="form-row">
+          <div class="form-group" style="position:relative;">
+            <label>Full Name *</label>
+            <input id="f_name" name="name" type="text" placeholder="Your name">
+            <span class="tip" id="tip_name">⚠ Please enter your full name</span>
+          </div>
+          <div class="form-group" style="position:relative;">
+            <label>Email Address *</label>
+            <input id="f_email" name="email" type="email" placeholder="your@email.com">
+            <span class="tip" id="tip_email">⚠ Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input id="f_phone" name="phone" type="tel" placeholder="+91 00000 00000">
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select id="f_service" name="service">
+              <option value="">Select a service</option>
+              <option>Web Development</option>
+              <option>Mobile App</option>
+              <option>UI/UX Design</option>
+              <option>SEO &amp; Marketing</option>
+              <option>E-Commerce</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="position:relative;">
+          <label>Tell Us About Your Project *</label>
+          <textarea id="f_message" name="message"
+            placeholder="Describe your project, goals, and timeline..."></textarea>
+          <span class="tip" id="tip_message">⚠ Please describe your project</span>
+        </div>
+        <button type="button" id="submitBtn" class="btn-primary" style="align-self:flex-start;"
+          onclick="sendMessage()">Send Message →</button>
+      </form>
+
+      <!-- Success Popup -->
+      <div id="successPopup"
+        style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,22,40,0.93); align-items:center; justify-content:center;">
+        <div
+          style="background:#0f1e35; border:1px solid rgba(200,169,110,0.5); padding:3rem 3.5rem; text-align:center; max-width:460px; width:90%; position:relative;">
+          <div style="font-size:3.5rem; margin-bottom:1rem;">✉️</div>
+          <div
+            style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; color:#C8A96E; margin-bottom:0.6rem;">
+            Message Sent!</div>
+          <p style="color:#8899aa; font-size:0.92rem; line-height:1.8; margin-bottom:2rem;">Thank you for reaching out
+            to <strong style="color:#fff;">Sarkonix</strong>.<br>We've received your message and will get back to you
+            within <strong style="color:#C8A96E;">24 hours</strong>.</p>
+          <button onclick="closePopup()"
+            style="background:#C8A96E; color:#0A1628; border:none; padding:0.85rem 2.8rem; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer;">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/917411535145" target="_blank" id="whatsappBtn" title="Chat on WhatsApp" style="
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.2rem 0.75rem 0.9rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  animation: waPulse 2.5s infinite;
+" onmouseover="this.style.transform='scale(1.07)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.6)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.4)'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"
+      style="flex-shrink:0;">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span>Chat with us</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.3rem;">
+        <img src="Sarkonix-Logo1.jpeg" alt="SARKONIX" style="height: 36px; width: auto; object-fit: contain;">
+      </div>
+      <p>We Build Websites That Help Grow Your Business</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Work</a>
+      <a href="#why">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Sarkonix. All rights reserved. · Bengaluru, India</div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      });
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      links.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+      });
+    });
+
+    // Intersection Observer animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .portfolio-card, .why-card, .testi-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // ── Send Message ──
+    // ── FormSubmit Email Integration ──
+    function sendMessage() {
+      var name = document.getElementById('f_name').value.trim();
+      var email = document.getElementById('f_email').value.trim();
+      var phone = document.getElementById('f_phone').value.trim();
+      var service = document.getElementById('f_service').value;
+      var message = document.getElementById('f_message').value.trim();
+
+      // Clear previous errors
+      ['name', 'email', 'message'].forEach(function (id) {
+        document.getElementById('f_' + id).classList.remove('input-error');
+        document.getElementById('tip_' + id).classList.remove('show');
+      });
+
+      // Validate
+      var valid = true;
+      if (!name) {
+        document.getElementById('f_name').classList.add('input-error');
+        document.getElementById('tip_name').classList.add('show');
+        valid = false;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('f_email').classList.add('input-error');
+        document.getElementById('tip_email').classList.add('show');
+        valid = false;
+      }
+      if (!message) {
+        document.getElementById('f_message').classList.add('input-error');
+        document.getElementById('tip_message').classList.add('show');
+        valid = false;
+      }
+      if (!valid) return;
+
+      // Clear on type
+      ['name', 'email', 'message'].forEach(function (id) {
+        document.getElementById('f_' + id).addEventListener('input', function () {
+          this.classList.remove('input-error');
+          document.getElementById('tip_' + id).classList.remove('show');
+        });
+      });
+
+      var btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      // Send via FormSubmit
+      var formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone || 'Not provided');
+      formData.append('service', service || 'Not specified');
+      formData.append('message', message);
+      formData.append('_subject', 'New Enquiry from ' + name + ' — Sarkonix Website');
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+
+      fetch('https://formsubmit.co/contact.sarkonix@gmail.com', {
+        method: 'POST',
+        body: formData
+      })
+        .then(function (res) {
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          document.getElementById('contactForm').reset();
+          document.getElementById('successPopup').style.display = 'flex';
+        })
+        .catch(function (err) {
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          alert('Failed to send. Please email us directly at contact.sarkonix@gmail.com');
+        });
+    }
+
+    function closePopup() {
+      document.getElementById('successPopup').style.display = 'none';
+    }
+
+    // Animated counters
+    function animateCounter(el, target, suffix = '') {
+      let start = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { el.textContent = target + suffix; clearInterval(timer); return; }
+        el.textContent = Math.floor(start) + suffix;
+      }, 20);
+    }
+
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(document.querySelectorAll('.stat-num')[0], 40, '+');
+          animateCounter(document.querySelectorAll('.stat-num')[1], 30, '+');
+          animateCounter(document.querySelectorAll('.stat-num')[2], 98, '%');
+          animateCounter(document.querySelectorAll('.stat-num')[3], 1, '+');
+          statsObs.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    statsObs.observe(document.querySelector('.stats-bar'));
+  </script>
+</body>
+
+</html>
