@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Lenis for smooth scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js" defer></script>
 
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 
 <body class="dark-mode">
@@ -42,17 +42,17 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <a href="index.html" class="logo-wrapper">
-                <img src="logo.svg" alt="Sarkonix" class="logo-svg">
+                <img src="logo.svg" alt="Sarkonix" class="logo-svg" width="160" height="40" fetchpriority="high">
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="work.html" class="nav-link">Work</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="btn btn-primary mobile-only">Get Quote</a>
+                <a href="contact.html" class="btn btn-primary mobile-only" aria-label="Get Quote (Mobile Navigation)">Get Quote</a>
             </div>
             <div class="nav-actions">
-                <a href="contact.html" class="btn btn-primary">Get Quote</a>
+                <a href="contact.html" class="btn btn-primary" aria-label="Get Quote (Desktop Navigation)">Get Quote</a>
             </div>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <span></span>
@@ -76,7 +76,7 @@
                     engineer growth engines.
                 </p>
                 <div class="hero-actions fade-up">
-                    <a href="#get-quote" class="btn btn-large btn-primary magnetic">Get Quote</a>
+                    <a href="#get-quote" class="btn btn-large btn-primary magnetic" aria-label="Get Quote for Performance Growth">Get Quote</a>
                     <a href="work.html" class="btn btn-large btn-outline magnetic">View Masterpieces</a>
                 </div>
 
@@ -151,8 +151,8 @@
                     <!-- 1. Web Intelligence -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072"
-                                alt="Web Intelligence">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="Web Intelligence" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>Web Intelligence</h3>
@@ -163,8 +163,8 @@
                     <!-- 2. Web App Development -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070"
-                                alt="Web App Development">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="Web App Development" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>Web App Development</h3>
@@ -175,8 +175,8 @@
                     <!-- 3. AI Solutions -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070"
-                                alt="AI Solutions">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="AI Solutions" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>AI Solutions</h3>
@@ -188,8 +188,8 @@
                     <!-- 4. SEO Strategy -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426"
-                                alt="SEO Strategy">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="SEO Strategy" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>SEO Strategy</h3>
@@ -200,8 +200,8 @@
                     <!-- 5. Mobile Apps -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=2070"
-                                alt="Mobile App Development">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="Mobile App Development" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>Mobile Apps</h3>
@@ -212,8 +212,8 @@
                     <!-- 6. E-Commerce -->
                     <div class="service-card tilt">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=2070"
-                                alt="E-Commerce Solutions">
+                            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=70&w=600&h=400"
+                                alt="E-Commerce Solutions" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-card-content">
                             <h3>E-Commerce</h3>
@@ -237,8 +237,8 @@
                     <div class="work-item large reveal">
                         <div class="work-img-wrapper">
                             <div class="work-overlay"></div>
-                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=2426&ixlib=rb-4.0.3"
-                                alt="E-commerce Engine">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=75&w=1200"
+                                alt="E-commerce Engine" width="1200" height="800" loading="lazy">
                         </div>
                         <div class="work-info">
                             <div class="work-category">Product Engineering</div>
@@ -253,8 +253,8 @@
                     <div class="work-grid container">
                         <div class="work-item reveal">
                             <div class="work-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2070"
-                                    alt="SaaS Dashboard">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=70&w=800"
+                                    alt="SaaS Dashboard" width="800" height="500" loading="lazy">
                             </div>
                             <div class="work-info">
                                 <div class="work-category">UI/UX Design</div>
@@ -263,8 +263,8 @@
                         </div>
                         <div class="work-item reveal">
                             <div class="work-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=2070"
-                                    alt="Mobile App">
+                                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=70&w=800"
+                                    alt="Mobile App" width="800" height="500" loading="lazy">
                             </div>
                             <div class="work-info">
                                 <div class="work-category">Mobile App</div>
@@ -470,22 +470,22 @@
                         <form class="premium-form">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" name="Full_Name" placeholder="Jhon Doe" required>
+                                    <label for="full_name">Full Name</label>
+                                    <input type="text" id="full_name" name="Full_Name" placeholder="John Doe" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="tel" name="Phone_Number" placeholder="+91 ..." required>
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="tel" id="phone_number" name="Phone_Number" placeholder="+91 ..." required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Gmail Address</label>
-                                <input type="email" name="Email_Address" placeholder="Verification Required" required>
+                                <label for="email_address">Gmail Address</label>
+                                <input type="email" id="email_address" name="Email_Address" placeholder="Verification Required" required>
                             </div>
                             <div class="form-group">
-                                <label>Core Objective</label>
+                                <label for="core_objective">Core Objective</label>
                                 <div class="select-wrapper">
-                                    <select name="Core_Objective" required>
+                                    <select id="core_objective" name="Core_Objective" required>
                                         <option value="" disabled selected>Select Strategy...</option>
                                         <option>Web Intelligence</option>
                                         <option>AI Solutions & Automation</option>
@@ -498,7 +498,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-large magnetic"
-                                style="width: 100%; margin-top: 20px;">Initialize Partnership</button>
+                                style="width: 100%; margin-top: 20px;" aria-label="Initialize Partnership and Request Quote">Initialize Partnership</button>
                         </form>
                     </div>
                 </div>
@@ -511,7 +511,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="logo-wrapper">
-                        <img src="logo.svg" alt="Sarkonix" class="logo-svg">
+                        <img src="logo.svg" alt="Sarkonix" class="logo-svg" width="160" height="40" loading="lazy">
                     </div>
                     <p>Crafting high-performance digital experiences for the next generation of global leaders.</p>
                 </div>
