@@ -1,0 +1,34 @@
+# Sarkonix — Global Digital Growth Agency
+
+> Elite digital experiences for brands that demand perfection. We don't just build websites; we engineer growth engines.
+
+[Full Website Markdown Mirror](/llms-full.txt)
+
+## About Us
+Sarkonix crafts elite digital experiences — from high-performance websites to scaled growth systems. Built for global authority.
+We are a registered Micro, Small, and Medium Enterprise (MSME), signifying our commitment to operational integrity, financial stability, and world-class digital delivery.
+
+## Core Services
+- **Web Intelligence**: Data-driven SEO and marketing strategies that dominate market share and drive ROI.
+- **Web App Development**: High-performance web apps with world-class codebases engineered in Bengaluru.
+- **AI Solutions**: Custom LLM integration and intelligent automation systems to optimize your business workflow.
+- **SEO Strategy**: Data-driven strategies that dominate market share and drive massive organic traffic.
+- **Mobile Apps**: Native experiences that deliver seamless performance on iOS and Android.
+- **E-Commerce**: High-converting online stores with seamless payment and inventory integrations.
+
+## Performance Metrics
+- **Avg. ROI**: +240%
+- **Latency**: 98ms
+- **Uptime**: 100%
+
+## Contact Information
+- **Email**: contact.sarkonix@gmail.com
+- **Phone**: +91 7411535145
+- **WhatsApp**: +91 7411535145
+
+## Site Pages
+- [Home](/)
+- [Services](/services.html)
+- [Work](/work.html)
+- [About](/about.html)
+- [Contact](/contact.html)
