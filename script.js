@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'TVS Credit', file: 'tvs-credit.svg' },
         { name: 'Jio', file: 'jio.svg' },
         { name: 'Urban Company', file: 'urban-company.svg' },
-        { name: 'Nykaa', file: 'Nykaa.svg' },
         { name: 'blinkit', file: 'blinkit.svg' },
         { name: 'boAt', file: 'boat.svg' },
         { name: 'lenskart', file: 'lenskart.svg' }
